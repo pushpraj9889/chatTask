@@ -224,7 +224,7 @@ const HomeScreen = () => {
             }).start();
           }
 
-          // Show delete icon for significant swipe
+          // Show delete icon for significant swipe functionality
           if (absTranslation > SWIPE_THRESHOLD) {
             Animated.timing(deleteOpacity, {
               toValue: 1,
@@ -244,13 +244,11 @@ const HomeScreen = () => {
           const absTranslation = Math.abs(translationX);
 
           if (absTranslation > SWIPE_THRESHOLD) {
-            // Delete action
             deleteMessage(item.id);
           } else if (
             (!item.isOwnMessage && translationX > REPLY_THRESHOLD) ||
             (item.isOwnMessage && translationX < -REPLY_THRESHOLD)
           ) {
-            // Reply action
             startReply(item);
           }
 
@@ -278,7 +276,7 @@ const HomeScreen = () => {
       [item.id, item.isOwnMessage]
     );
 
-    // Delete animation effect
+    // Delete animation effect for message
     React.useEffect(() => {
       if (deletingMessageId === item.id) {
         Animated.parallel([
@@ -298,7 +296,7 @@ const HomeScreen = () => {
 
     return (
       <View style={styles.messageWrapper}>
-        {/* Background Icons */}
+        {/* Background Icons   to show */}
         <View style={styles.backgroundIcons}>
           <Animated.View
             style={[
@@ -327,7 +325,7 @@ const HomeScreen = () => {
           </Animated.View>
         </View>
 
-        {/* Message Content */}
+        {/* Message Content  coverd */}
         <PanGestureHandler
           onGestureEvent={onGestureEvent}
           onHandlerStateChange={onHandlerStateChange}
@@ -343,7 +341,7 @@ const HomeScreen = () => {
               },
             ]}
           >
-            {/* Reply Preview */}
+            {/* Reply Preview  messages */}
             {replyMessage && (
               <View style={styles.replyPreview}>
                 <Text style={styles.replyAuthor}>{replyMessage.sender}</Text>
@@ -355,7 +353,7 @@ const HomeScreen = () => {
               </View>
             )}
 
-            {/* Message Content */}
+            {/* Message Content  to show*/}
             <View style={styles.messageContent}>
               {item.type === "text" ? (
                 <Text
@@ -461,7 +459,7 @@ const HomeScreen = () => {
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor="#007AFF" />
 
-        {/* Header */}
+        {/* Header for messeging  */}
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Messages</Text>
         </View>
@@ -475,13 +473,13 @@ const HomeScreen = () => {
           contentContainerStyle={styles.messagesContainer}
           removeClippedSubviews={false}
           getItemLayout={(data, index) => ({
-            length: 100, // Approximate item height
+            length: 100,
             offset: 100 * index,
             index,
           })}
         />
 
-        {/* Reply Modal */}
+        {/* Reply Modal  view */}
         <Modal
           animationType="slide"
           transparent={true}
