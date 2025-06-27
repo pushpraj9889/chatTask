@@ -466,7 +466,6 @@ const HomeScreen = () => {
           <Text style={styles.headerTitle}>Messages</Text>
         </View>
 
-        {/* Messages List */}
         <FlatList
           data={messages}
           renderItem={renderMessage}
